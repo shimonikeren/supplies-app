@@ -5,14 +5,13 @@
 //require orm.js
 var orm = require("../config/orm.js");
 
+//call orm functions
 var supplies ={
     selectAll:function(cb){
         orm.selectAll("supplies", function(res){
             cb(res);
         });
     }
-    //TODO:
-    //other functions here
 }
 
 

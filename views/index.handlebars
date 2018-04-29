@@ -1,8 +1,70 @@
     {{!-- * Create a button in `index.handlebars` that will submit the user input into the database. --}}
 
 
-<!--trying to render to page with handlebars-->
-<ul>  
-    {{#each supplies}}
-    {{/each}}
-</ul>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+            <h1>ORDER FORM</h1>
+            <hr>
+        </div>
+        <div class="col-sm-4"></div>
+    </div><!--end row-->
+</div> <!--end container-->
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+            <h2>Supplies to buy</h2> 
+            <ul>
+                {{#each supplies}}
+                <li>{{this.supply}}</li>
+                {{/each}}
+            </ul>
+        </div>
+        <div class="col-sm-4">
+            <h2>Supplies Input Form</h2> 
+                <div class="form-container">
+                    <div class="row">
+                        <div class="col-md-8 center-element">
+                            <form>
+                                <div class="form-group">
+                                    <label>Enter item</label>
+                                    <input class="input-lg form-control" type="text">
+                                </div>
+                                <button id="submit-button" type="submit">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <div class="col-sm-4"><h2>Supplies Already Bought</h2> </div>
+    </div><!--end row-->
+</div> <!--end container-->
+
+
+
+
+
+<script type="text/javascript">
+  $("#submit-button").on("submit", function(event) {
+    event.preventDefault();
+    var newSupply = {
+      supply: $("#submit-button [name=supply]").val().trim()
+    };
+    // Send the POST request.
+    $.ajax("/", {
+      type: "POST",
+      data: newSupply
+    }).then(
+      function() {
+        console.log("created new item");
+        // Reload the page to get the updated list
+        location.reload();
+      }
+    );
+  });
+</script>
+

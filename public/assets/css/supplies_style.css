@@ -1,0 +1,19 @@
+body, html {
+    height: 100%;
+}
+
+body {
+        background-image: url("../img/office2.jpg");
+        height: 100%;  
+        background-position: center;
+        background-repeat: no-repeat; 
+        background-size: cover;
+        color: rgb(223, 162, 108);
+        /* color: #563037; */
+}
+
+h1 {
+    text-align: center;
+    /* color: #563037;  */
+    color: rgb(223, 162, 108);
+}
