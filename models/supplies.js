@@ -1,7 +1,3 @@
-/* Inside `burger.js`, import `orm.js` into `burger.js`
-    * Also inside `burger.js`, create the code that will call the ORM functions using burger specific input for the ORM.
-    * Export at the end of the `burger.js` file.*/
-
 //require orm.js
 var orm = require("../config/orm.js");
 
@@ -11,8 +7,24 @@ var supplies ={
         orm.selectAll("supplies", function(res){
             cb(res);
         });
+    },
+    insertOne:function(value, cb){
+        orm.insertOne(value, function(res){
+            cb(res);
+        });
+    },
+    updateOne:function(itemId, cb){
+        orm.updateOne(itemId, function(res){
+            cb(res);
+        });
+    },
+    deleteOne:function(itemId, cb){
+        orm.deleteOne(itemId, function(res){
+            cb(res);
+        });
     }
-}
 
+    //last func here
+}
 
 module.exports = supplies; 

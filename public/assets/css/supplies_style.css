@@ -17,3 +17,19 @@ h1 {
     /* color: #563037;  */
     color: rgb(223, 162, 108);
 }
+
+ul {
+    list-style-type: none;
+}
+
+li { 
+    padding: 4px 0px; 
+}  
+
+h6 {
+    text-align: center;
+}
+
+#enter {
+    color: rgb(223, 162, 108);
+}
