@@ -27,13 +27,6 @@ var orm = {
     connection.query(queryString, itemId, function (err, result){
       cb(result);
     });
-  },
-
-  reUpdate: function(itemId, cb){
-    var queryString = "UPDATE supplies SET purchased = 0 WHERE id = (?)";
-    connection.query(queryString, itemId, function (err, result){
-      cb(result);
-    });
   }
 };
 

@@ -42,15 +42,13 @@
                 </div>
         </div>
         <div class="col-sm-4">
-            <h2>Supplies Already Bought</h2> 
-                <h6>*Click &#10008 button to Delete from Form </h6>
-                {{!-- <h6>*Click R button to Re-Add to Order Form </h6> --}}
+            <h2>Recently Purchased</h2> 
+                <h6>*Click &#10008 button to remove from Form </h6>
                 <ul>
                 {{#each supplies}}
                     {{#if purchased}}
                     <li>
                         <button data-id="{{this.id}}" class="delbutton" type="submit">&#10008</button>
-                        <button data-id="{{this.id}}" class="reOrder" type="submit">R</button>
                         {{this.supply}}
                     </li>
                     {{/if}}
@@ -77,7 +75,6 @@ $( document ).ready(function() {
       data: newSupply
     }).then(
       function() {
-        // Rather than redirect to new page, reload the page to get the updated info
         location.reload();
       }
     );
@@ -86,7 +83,6 @@ $( document ).ready(function() {
   $(".purchased-button").on("click", function(event) {
     event.preventDefault();
     var itemId = $(this).data("id");
-    // Send the PUT request.
     $.ajax("/api/supplies/" + itemId , {
       type: "PUT"
     }).then(
@@ -100,34 +96,15 @@ $( document ).ready(function() {
 $(".delbutton").on("click", function(event) {
     event.preventDefault();
     var itemId = $(this).data("id");
-    // Send the DELETE request.
     $.ajax("/api/supplies/" + itemId, {
       type: "DELETE"
     }).then(
       function(something) {
-        console.log("WORKED");
-        // Reload the page to get the updated list
+        console.log("worked");
         location.reload();
       }
     );
   });
-
-$(".reOrder").on("click", function(event) {
-    event.preventDefault();
-    var itemId = $(this).data("id");
-    // Send the DELETE request.
-    $.ajax("/api/supplies/" + itemId, {
-      type: "PUT"
-    }).then(
-      function(something) {
-        console.log("WORKED");
-        // Reload the page to get the updated list
-        location.reload();
-      }
-    );
-  });
-
-
 
 }); //end doc ready 
 
