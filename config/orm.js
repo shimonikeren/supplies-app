@@ -1,6 +1,5 @@
 var connection = require("../config/connection.js");
 
-//methods, query data from db
 var orm = {
   selectAll: function(tableInput, cb){
     var queryString = "SELECT * FROM supplies";
@@ -16,7 +15,6 @@ var orm = {
     });
   },
 
-  //change from needs list to purchased (ie change purchased from false to true)
   updateOne: function(itemId, cb){
     var queryString = "UPDATE supplies SET purchased = 1 WHERE id = (?)";
     connection.query(queryString, itemId, function (err, result){
@@ -29,8 +27,14 @@ var orm = {
     connection.query(queryString, itemId, function (err, result){
       cb(result);
     });
+  },
+
+  reUpdate: function(itemId, cb){
+    var queryString = "UPDATE supplies SET purchased = 0 WHERE id = (?)";
+    connection.query(queryString, itemId, function (err, result){
+      cb(result);
+    });
   }
 };
 
-//export orm object; (require in supplies.js)
 module.exports = orm;

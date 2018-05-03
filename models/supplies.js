@@ -22,9 +22,14 @@ var supplies ={
         orm.deleteOne(itemId, function(res){
             cb(res);
         });
+    },
+    
+    reUpdate:function(itemId, cb){
+        orm.reUpdate(itemId, function(res){
+            cb(res);
+        });
     }
 
-    //last func here
 }
 
 module.exports = supplies; 
