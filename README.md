@@ -1,4 +1,7 @@
 # supplies-app
+
+![screenshot](/suplies-app/public/assets/img/screenshot.png)
+
 **Link to Full Site** 
 [Click Here](https://infinite-sea-65089.herokuapp.com/)
 
@@ -10,5 +13,8 @@
 # technologies and methods used
 * javascript, jquery
 * node js
-* npm packages: express, handlebars, body-parser 
+* mySQL Database
+* npm packages: express, handlebars, body-parser
 * MVC model, ORM 
+* nodemon, chrome dev tools
+* HTML, CSS
