@@ -1,6 +1,6 @@
 # supplies-app
 
-![screenshot](http://url/supplies-app/public/assets/img/screenshot.png)
+![screenshot](public/assets/img/screenshot.png)
 
 **Link to Full Site** 
 [Click Here](https://infinite-sea-65089.herokuapp.com/)
