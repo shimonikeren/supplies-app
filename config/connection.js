@@ -8,8 +8,6 @@ var mysql = require("mysql");
 //   database: process.env.MYSQL_DB || "supplies_db"
 // });
 
-
-
 if (process.env.JAWSDB_URL){
   connection = mysql.createConnection(process.env.JAWSDB_URL);
 }else{
